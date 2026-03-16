@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js","/_next/static/chunks/22ed358bd64f1277.js"],""]
+3:I[84980,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js","/_next/static/chunks/22ed358bd64f1277.js"],"MDXContent",1]
+8:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+:HL["/_next/static/chunks/e20b3f65e97ac4be.css","style"]
+4:T7fe,
+# TypeScript 高级技巧
+
+TypeScript 的类型系统非常强大，让我们探索一些高级技巧。
+
+## 条件类型
+
+条件类型允许根据类型关系进行推断：
+
+```typescript
+type IsString<T> = T extends string ? true : false
+
+type A = IsString<string> // true
+type B = IsString<number> // false
+```
+
+### 实用示例：提取函数返回类型
+
+```typescript
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never
+
+function getUser() {
+  return { id: 1, name: "Alice" }
+}
+
+type User = ReturnType<typeof getUser>
+// { id: number; name: string }
+```
+
+## 映射类型
+
+映射类型可以转换现有类型的属性：
+
+```typescript
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P]
+}
+
+type Optional<T> = {
+  [P in keyof T]?: T[P]
+}
+
+interface User {
+  id: number
+  name: string
+  email: string
+}
+
+type ReadonlyUser = Readonly<User>
+type OptionalUser = Optional<User>
+```
+
+## 模板字面量类型
+
+字符串模式的类型安全：
+
+```typescript
+type EventName = `on${Capitalize<string>}`
+
+type ValidEvents = EventName // "onClick" | "onHover" | ...
+
+type Route = `/api/${string}`
+
+type APIRoutes = Route // "/api/users" | "/api/posts" | ...
+```
+
+## 实用工具类型组合
+
+```typescript
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object 
+    ? DeepPartial<T[P]> 
+    : T[P]
+}
+
+type PickByType<T, U> = {
+  [P in keyof T as T[P] extends U ? P : never]: T[P]
+}
+
+interface Config {
+  name: string
+  timeout: number
+  retries: number
+  enabled: boolean
+}
+
+type NumberConfig = PickByType<Config, number>
+// { timeout: number; retries: number }
+```
+
+## 类型体操示例
+
+实现一个类型安全的 `Object.keys`：
+
+```typescript
+type ObjectKeys<T extends object> = `${Exclude<keyof T, symbol>}`
+
+function getKeys<T extends object>(obj: T): ObjectKeys<T>[] {
+  return Object.keys(obj) as ObjectKeys<T>[]
+}
+
+const user = { id: 1, name: "Alice" }
+const keys = getKeys(user) // ("id" | "name")[]
+```
+
+## 总结
+
+掌握这些高级技巧可以让你的 TypeScript 代码更加类型安全和可维护。0:{"buildId":"XwJCTp3VRIq2nXyef8epa","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-4xl mx-auto","children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"text-4xl font-extrabold tracking-tight mb-4","children":"TypeScript 高级技巧"}],["$","div",null,{"className":"flex items-center gap-4 text-muted-foreground mb-4","children":["$","time",null,{"dateTime":"2026-03-14","children":"2026-03-14"}]}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","$L2","TypeScript",{"href":"/tags/TypeScript","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"TypeScript"}]}],["$","$L2","JavaScript",{"href":"/tags/JavaScript","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"JavaScript"}]}],["$","$L2","Programming",{"href":"/tags/Programming","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"Programming"}]}]]}]]}],["$","$L3",null,{"source":"$4"}],["$","footer",null,{"className":"mt-12 pt-8 border-t","children":["$","$L2",null,{"href":"/","className":"text-sm text-muted-foreground hover:text-primary","children":"← 返回首页"}]}]]}],["$L5","$L6"],"$L7"]}],"loading":null,"isPartial":false}
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/e20b3f65e97ac4be.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/22ed358bd64f1277.js","async":true}]
+7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null

@@ -1,0 +1,74 @@
+---
+title: "开始使用 Next.js 15"
+date: "2026-03-15"
+description: "探索 Next.js 15 的新特性，包括 Turbopack、改进的缓存策略和 React 19 支持。"
+tags: ["Next.js", "React", "Web Development"]
+---
+
+# 开始使用 Next.js 15
+
+Next.js 15 带来了许多激动人心的新特性，让我们一起探索。
+
+## Turbopack 稳定版
+
+Turbopack 现在已经稳定，可以显著提升开发体验：
+
+```bash
+next dev --turbopack
+```
+
+性能提升：
+- 冷启动快 **10x**
+- 热更新快 **700x**
+
+## React 19 支持
+
+Next.js 15 完整支持 React 19 的新特性：
+
+### use() Hook
+
+```tsx
+async function UserProfile({ id }: { id: string }) {
+  const user = await use(fetchUser(id))
+  return <div>{user.name}</div>
+}
+```
+
+### Server Actions
+
+```tsx
+async function submitForm(formData: FormData) {
+  "use server"
+  await saveToDatabase(formData)
+}
+```
+
+## 改进的缓存策略
+
+新的缓存配置更加灵活：
+
+```tsx
+// 页面级别
+export const revalidate = 3600 // 每小时重新验证
+
+// fetch 级别
+const data = await fetch(url, { 
+  next: { revalidate: 60 } 
+})
+```
+
+## 数学公式支持
+
+我们可以渲染数学公式：
+
+行内公式：$E = mc^2$
+
+块级公式：
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+## 总结
+
+Next.js 15 是一个重要的里程碑，为现代 Web 开发提供了强大的工具链。

@@ -1,0 +1,114 @@
+---
+title: "TypeScript 高级技巧"
+date: "2026-03-14"
+description: "深入探讨 TypeScript 的高级类型系统，包括条件类型、映射类型和模板字面量类型。"
+tags: ["TypeScript", "JavaScript", "Programming"]
+---
+
+# TypeScript 高级技巧
+
+TypeScript 的类型系统非常强大，让我们探索一些高级技巧。
+
+## 条件类型
+
+条件类型允许根据类型关系进行推断：
+
+```typescript
+type IsString<T> = T extends string ? true : false
+
+type A = IsString<string> // true
+type B = IsString<number> // false
+```
+
+### 实用示例：提取函数返回类型
+
+```typescript
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never
+
+function getUser() {
+  return { id: 1, name: "Alice" }
+}
+
+type User = ReturnType<typeof getUser>
+// { id: number; name: string }
+```
+
+## 映射类型
+
+映射类型可以转换现有类型的属性：
+
+```typescript
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P]
+}
+
+type Optional<T> = {
+  [P in keyof T]?: T[P]
+}
+
+interface User {
+  id: number
+  name: string
+  email: string
+}
+
+type ReadonlyUser = Readonly<User>
+type OptionalUser = Optional<User>
+```
+
+## 模板字面量类型
+
+字符串模式的类型安全：
+
+```typescript
+type EventName = `on${Capitalize<string>}`
+
+type ValidEvents = EventName // "onClick" | "onHover" | ...
+
+type Route = `/api/${string}`
+
+type APIRoutes = Route // "/api/users" | "/api/posts" | ...
+```
+
+## 实用工具类型组合
+
+```typescript
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object 
+    ? DeepPartial<T[P]> 
+    : T[P]
+}
+
+type PickByType<T, U> = {
+  [P in keyof T as T[P] extends U ? P : never]: T[P]
+}
+
+interface Config {
+  name: string
+  timeout: number
+  retries: number
+  enabled: boolean
+}
+
+type NumberConfig = PickByType<Config, number>
+// { timeout: number; retries: number }
+```
+
+## 类型体操示例
+
+实现一个类型安全的 `Object.keys`：
+
+```typescript
+type ObjectKeys<T extends object> = `${Exclude<keyof T, symbol>}`
+
+function getKeys<T extends object>(obj: T): ObjectKeys<T>[] {
+  return Object.keys(obj) as ObjectKeys<T>[]
+}
+
+const user = { id: 1, name: "Alice" }
+const keys = getKeys(user) // ("id" | "name")[]
+```
+
+## 总结
+
+掌握这些高级技巧可以让你的 TypeScript 代码更加类型安全和可维护。

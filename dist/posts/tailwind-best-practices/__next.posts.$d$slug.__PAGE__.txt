@@ -1,0 +1,101 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js","/_next/static/chunks/22ed358bd64f1277.js"],""]
+3:I[84980,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js","/_next/static/chunks/22ed358bd64f1277.js"],"MDXContent",1]
+5:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+:HL["/_next/static/chunks/e20b3f65e97ac4be.css","style"]
+4:T6fc,
+# Tailwind CSS 最佳实践
+
+Tailwind CSS 是一个功能优先的 CSS 框架，以下是一些最佳实践。
+
+## 1. 使用 @apply 谨慎
+
+避免过度使用 `@apply`，它会破坏 Tailwind 的原子性：
+
+```css
+/* ❌ 不推荐 */
+.btn {
+  @apply px-4 py-2 bg-blue-500 text-white rounded-lg;
+}
+
+/* ✅ 推荐 */
+<button class="px-4 py-2 bg-blue-500 text-white rounded-lg">
+  Click me
+</button>
+```
+
+## 2. 组件提取
+
+将重复的模式提取为组件：
+
+```tsx
+// ❌ 重复
+<div class="flex items-center justify-between p-4 bg-white rounded-lg shadow">
+<div class="flex items-center justify-between p-4 bg-white rounded-lg shadow">
+
+// ✅ 提取为 Card 组件
+function Card({ children, className }) {
+  return (
+    <div className={cn(
+      "flex items-center justify-between p-4 bg-white rounded-lg shadow",
+      className
+    )}>
+      {children}
+    </div>
+  )
+}
+```
+
+## 3. 响应式设计
+
+使用移动优先的响应式设计：
+
+```tsx
+// 小屏幕默认，移动端友好
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+// 条件类
+<div className={cn(
+  "p-4",
+  isActive ? "bg-blue-500" : "bg-gray-500"
+)}>
+```
+
+## 4. 暗色模式
+
+使用 `dark:` 变体：
+
+```tsx
+<div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+  <h1 className="text-2xl font-bold">Hello World</h1>
+</div>
+```
+
+## 5. 自定义配置
+
+在 `tailwind.config.ts` 中扩展主题：
+
+```ts
+export default {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50: '#f0f9ff',
+          500: '#0ea5e9',
+          900: '#0c4a6e',
+        }
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      }
+    }
+  }
+}
+```
+
+## 总结
+
+Tailwind CSS 的核心理念是实用优先，保持代码简洁和可维护是关键。0:{"buildId":"XwJCTp3VRIq2nXyef8epa","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"max-w-4xl mx-auto","children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"text-4xl font-extrabold tracking-tight mb-4","children":"Tailwind CSS 最佳实践"}],["$","div",null,{"className":"flex items-center gap-4 text-muted-foreground mb-4","children":["$","time",null,{"dateTime":"2026-03-13","children":"2026-03-13"}]}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","$L2","Tailwind",{"href":"/tags/Tailwind","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"Tailwind"}]}],["$","$L2","CSS",{"href":"/tags/CSS","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"CSS"}]}],["$","$L2","Web Development",{"href":"/tags/Web%20Development","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"Web Development"}]}]]}]]}],["$","$L3",null,{"source":"$4"}],["$","footer",null,{"className":"mt-12 pt-8 border-t","children":["$","$L2",null,{"href":"/","className":"text-sm text-muted-foreground hover:text-primary","children":"← 返回首页"}]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/e20b3f65e97ac4be.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/22ed358bd64f1277.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"loading":null,"isPartial":false}
+7:null

@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[32276,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js"],"SearchBar"]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"XwJCTp3VRIq2nXyef8epa","rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-3xl font-bold mb-8","children":"搜索文章"}],["$","$L2",null,{}],["$","p",null,{"className":"mt-8 text-muted-foreground","children":"请输入搜索关键词来查找文章"}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null

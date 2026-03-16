@@ -1,0 +1,143 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js","/_next/static/chunks/22ed358bd64f1277.js"],""]
+3:I[32276,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js"],"SearchBar"]
+4:I[39756,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"default"]
+5:I[37457,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"default"]
+7:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+a:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"ViewportBoundary"]
+c:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"MetadataBoundary"]
+e:I[68027,[],"default"]
+:HL["/_next/static/chunks/f5e25855382363c0.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/e20b3f65e97ac4be.css","style"]
+0:{"P":null,"b":"XwJCTp3VRIq2nXyef8epa","c":["","posts","accessible-web-apps"],"q":"","i":false,"f":[[["",{"children":["posts",{"children":[["slug","accessible-web-apps","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/f5e25855382363c0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/135aa1e47e43b074.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/7033a3ee8baa0742.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"zh-CN","suppressHydrationWarning":true,"children":["$","body",null,{"className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased min-h-screen","children":["$","div",null,{"className":"min-h-screen flex flex-col","children":[["$","header",null,{"className":"border-b","children":["$","div",null,{"className":"container mx-auto px-4 py-4 flex items-center justify-between gap-4","children":[["$","$L2",null,{"href":"/","className":"text-2xl font-bold","children":"橙子博客"}],["$","div",null,{"className":"flex items-center gap-4","children":[["$","nav",null,{"className":"hidden sm:flex items-center gap-6","children":[["$","$L2",null,{"href":"/","className":"text-sm font-medium hover:text-primary","children":"首页"}],["$","$L2",null,{"href":"/tags","className":"text-sm font-medium hover:text-primary","children":"标签"}]]}],["$","$L3",null,{}]]}]]}]}],["$","main",null,{"className":"flex-1 container mx-auto px-4 py-8","children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t py-6","children":["$","div",null,{"className":"container mx-auto px-4 text-center text-sm text-muted-foreground","children":"© 2026 橙子博客. 使用 Next.js 15 构建."}]}]]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/e20b3f65e97ac4be.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/22ed358bd64f1277.js","async":true,"nonce":"$undefined"}]],["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],{},null,false,false]},null,false,false]},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$La",null,{"children":"$Lb"}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$8",null,{"name":"Next.Metadata","children":"$Ld"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],false]],"m":"$undefined","G":["$e",[]],"S":true}
+f:I[84980,["/_next/static/chunks/135aa1e47e43b074.js","/_next/static/chunks/7033a3ee8baa0742.js","/_next/static/chunks/22ed358bd64f1277.js"],"MDXContent",1]
+10:T928,
+# 构建可访问的 Web 应用
+
+Web 可访问性确保所有用户都能使用你的应用，包括残障用户。
+
+## 为什么需要可访问性？
+
+- **法律要求**：许多国家有 WCAG 合规要求
+- **用户体验**：改善每个人体验
+- **SEO 优化**：搜索引擎更好地理解你的内容
+
+## 语义化 HTML
+
+使用正确的 HTML 元素：
+
+```tsx
+// ❌ 错误
+<div onClick={handleClick}>Click me</div>
+
+// ✅ 正确
+<button onClick={handleClick}>Click me</button>
+```
+
+### 常用语义元素
+
+| 元素 | 用途 |
+|------|------|
+| `<header>` | 页面或区域的头部 |
+| `<nav>` | 导航链接 |
+| `<main>` | 主要内容 |
+| `<article>` | 独立内容 |
+| `<aside>` | 侧边栏 |
+| `<footer>` | 页面或区域的底部 |
+
+## ARIA 属性
+
+当 HTML 不足时使用 ARIA：
+
+```tsx
+// 隐藏装饰性元素
+<div aria-hidden="true">
+  <Icon />
+</div>
+
+// 输入提示
+<label htmlFor="email">Email</label>
+<input 
+  id="email" 
+  type="email" 
+  aria-describedby="email-hint" 
+/>
+<p id="email-hint">We'll never share your email.</p>
+
+// 加载状态
+<button aria-busy={isLoading}>
+  {isLoading ? 'Saving...' : 'Save'}
+</button>
+```
+
+## 键盘导航
+
+确保所有交互可通过键盘操作：
+
+```tsx
+// ❌ 使用 div 点击
+<div onClick={openMenu}>Menu</div>
+
+// ✅ 使用按钮
+<button onClick={openMenu}>Menu</button>
+
+// 焦点管理
+function Modal({ isOpen, onClose }) {
+  const dialogRef = useRef<HTMLDivElement>(null)
+  
+  useEffect(() => {
+    if (isOpen) {
+      dialogRef.current?.focus()
+    }
+  }, [isOpen])
+  
+  return (
+    <div 
+      role="dialog"
+      ref={dialogRef}
+      tabIndex={-1}
+    >
+      <button onClick={onClose}>Close</button>
+    </div>
+  )
+}
+```
+
+## 颜色对比度
+
+确保文本有足够的对比度：
+
+```css
+/* ✅ 符合 WCAG AA */
+.text-primary {
+  color: #1a1a1a; /* 对比度 16:1 */
+}
+
+/* ❌ 不符合 */
+.text-low-contrast {
+  color: #767676; /* 对比度 4.5:1，不达标 */
+}
+```
+
+使用工具检查：
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- Chrome 开发者工具
+
+## 屏幕阅读器测试
+
+常用屏幕阅读器：
+- **macOS**: VoiceOver (⌘ + F5)
+- **Windows**: NVDA、JAWS
+- **iOS**: VoiceOver
+- **Android**: TalkBack
+
+## 总结
+
+可访问性不是负担，而是高质量 Web 应用的标志。从小事做起，逐步改善。6:["$","article",null,{"className":"max-w-4xl mx-auto","children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"text-4xl font-extrabold tracking-tight mb-4","children":"构建可访问的 Web 应用"}],["$","div",null,{"className":"flex items-center gap-4 text-muted-foreground mb-4","children":["$","time",null,{"dateTime":"2026-03-11","children":"2026-03-11"}]}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","$L2","Accessibility",{"href":"/tags/Accessibility","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"Accessibility"}]}],["$","$L2","Web Development",{"href":"/tags/Web%20Development","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"Web Development"}]}],["$","$L2","UX",{"href":"/tags/UX","children":["$","div",null,{"className":"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer","children":"UX"}]}]]}]]}],["$","$Lf",null,{"source":"$10"}],["$","footer",null,{"className":"mt-12 pt-8 border-t","children":["$","$L2",null,{"href":"/","className":"text-sm text-muted-foreground hover:text-primary","children":"← 返回首页"}]}]]}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+11:I[27201,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"IconMark"]
+9:null
+d:[["$","title","0",{"children":"构建可访问的 Web 应用 - 橙子博客"}],["$","meta","1",{"name":"description","content":"学习 Web 可访问性（a11y）基础知识，让你的应用对所有用户都友好。"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L11","3",{}]]
