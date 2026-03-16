@@ -12,7 +12,6 @@ interface SearchBarProps {
 
 export function SearchBar({ initialQuery = "" }: SearchBarProps) {
   const [query, setQuery] = useState(initialQuery)
-  const [isFocused, setIsFocused] = useState(false)
   const router = useRouter()
 
   const handleSearch = useCallback((e: React.FormEvent) => {
@@ -31,19 +30,17 @@ export function SearchBar({ initialQuery = "" }: SearchBarProps) {
       <div className="relative flex-1">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
         <Input
-          type="search"
+          type="text"
           placeholder="搜索文章..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          className="pl-10 pr-10 h-10 bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="pl-10 pr-8 h-10 bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
         {query && (
           <button
             type="button"
             onClick={clearSearch}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground hover:text-foreground transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
