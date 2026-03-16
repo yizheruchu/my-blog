@@ -38,14 +38,15 @@ export function Pagination({
   }
 
   return (
-    <nav className={cn("flex items-center justify-center gap-1", className)}>
+    <nav className={cn("flex items-center justify-center gap-2", className)}>
+      {/* 上一页 */}
       <Link
-        href={getPageUrl(currentPage - 1)}
+        href={getPageUrl(Math.max(1, currentPage - 1))}
         className={cn(
-          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+          "flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all",
           currentPage === 1
-            ? "pointer-events-none opacity-50"
-            : "hover:bg-accent hover:text-accent-foreground"
+            ? "pointer-events-none opacity-40"
+            : "hover:bg-secondary hover:text-foreground text-muted-foreground"
         )}
         aria-disabled={currentPage === 1}
       >
@@ -53,60 +54,64 @@ export function Pagination({
         上一页
       </Link>
 
-      {startPage > 1 && (
-        <>
+      {/* 页码 */}
+      <div className="flex items-center gap-1">
+        {startPage > 1 && (
+          <>
+            <Link
+              href={getPageUrl(1)}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-all hover:bg-secondary text-muted-foreground hover:text-foreground"
+            >
+              1
+            </Link>
+            {startPage > 2 && (
+              <span className="flex h-10 w-10 items-center justify-center text-sm text-muted-foreground">
+                ...
+              </span>
+            )}
+          </>
+        )}
+
+        {pages.map((page) => (
           <Link
-            href={getPageUrl(1)}
-            className="flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+            key={page}
+            href={getPageUrl(page)}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-all",
+              page === currentPage
+                ? "gradient-btn text-white shadow-lg shadow-primary/25"
+                : "hover:bg-secondary text-muted-foreground hover:text-foreground"
+            )}
           >
-            1
+            {page}
           </Link>
-          {startPage > 2 && (
-            <span className="flex h-9 w-9 items-center justify-center text-sm">
-              ...
-            </span>
-          )}
-        </>
-      )}
+        ))}
 
-      {pages.map((page) => (
-        <Link
-          key={page}
-          href={getPageUrl(page)}
-          className={cn(
-            "flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors",
-            page === currentPage
-              ? "bg-primary text-primary-foreground shadow"
-              : "hover:bg-accent hover:text-accent-foreground"
-          )}
-        >
-          {page}
-        </Link>
-      ))}
+        {endPage < totalPages && (
+          <>
+            {endPage < totalPages - 1 && (
+              <span className="flex h-10 w-10 items-center justify-center text-sm text-muted-foreground">
+                ...
+              </span>
+            )}
+            <Link
+              href={getPageUrl(totalPages)}
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-all hover:bg-secondary text-muted-foreground hover:text-foreground"
+            >
+              {totalPages}
+            </Link>
+          </>
+        )}
+      </div>
 
-      {endPage < totalPages && (
-        <>
-          {endPage < totalPages - 1 && (
-            <span className="flex h-9 w-9 items-center justify-center text-sm">
-              ...
-            </span>
-          )}
-          <Link
-            href={getPageUrl(totalPages)}
-            className="flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-          >
-            {totalPages}
-          </Link>
-        </>
-      )}
-
+      {/* 下一页 */}
       <Link
-        href={getPageUrl(currentPage + 1)}
+        href={getPageUrl(Math.min(totalPages, currentPage + 1))}
         className={cn(
-          "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+          "flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all",
           currentPage === totalPages
-            ? "pointer-events-none opacity-50"
-            : "hover:bg-accent hover:text-accent-foreground"
+            ? "pointer-events-none opacity-40"
+            : "hover:bg-secondary hover:text-foreground text-muted-foreground"
         )}
         aria-disabled={currentPage === totalPages}
       >
