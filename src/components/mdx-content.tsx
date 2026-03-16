@@ -9,91 +9,44 @@ import remarkMath from "remark-math"
 import "katex/dist/katex.min.css"
 import "highlight.js/styles/github-dark.css"
 
-// 代码块包装组件（带复制按钮和语言标签）
-function CodeBlock({ children, className, ...props }: React.HTMLAttributes<HTMLElement>) {
-  const match = /language-(\w+)/.exec(className || "")
-  const language = match ? match[1] : ""
-  
-  // 判断是否是代码块（有语言类名或 pre 的子元素）
-  const isCodeBlock = className?.includes("language-") || 
-    (typeof children === "object" && React.isValidElement(children) && 
-     (children.props as any)?.className?.includes("language-"))
-
-  if (!isCodeBlock) {
-    // 行内代码
-    return (
-      <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props}>
-        {children}
-      </code>
-    )
-  }
-
-  // 获取实际的语言名
-  const actualLanguage = language || 
-    (React.isValidElement(children) && (children.props as any)?.className?.match(/language-(\w+)/)?.[1]) ||
-    "code"
-
-  const languageNames: Record<string, string> = {
-    typescript: "TypeScript",
-    javascript: "JavaScript",
-    tsx: "TSX",
-    jsx: "JSX",
-    python: "Python",
-    rust: "Rust",
-    go: "Go",
-    java: "Java",
-    cpp: "C++",
-    c: "C",
-    css: "CSS",
-    scss: "SCSS",
-    html: "HTML",
-    json: "JSON",
-    yaml: "YAML",
-    bash: "Bash",
-    shell: "Shell",
-    sql: "SQL",
-    markdown: "Markdown",
-    mdx: "MDX",
-  }
-
-  const displayName = languageNames[actualLanguage.toLowerCase()] || actualLanguage.toUpperCase()
-
-  return (
-    <div className="relative group my-4">
-      {/* 语言标签和复制按钮 */}
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-800/50 rounded-t-lg border-b border-gray-700">
-        <span className="text-xs text-gray-400 font-medium">{displayName}</span>
-        <CopyButton />
-      </div>
-      
-      {/* 代码内容 */}
-      <div className="overflow-x-auto rounded-b-lg">
-        <code className={className} {...props}>
-          {children}
-        </code>
-      </div>
-    </div>
-  )
+const languageNames: Record<string, string> = {
+  typescript: "TypeScript",
+  javascript: "JavaScript",
+  tsx: "TSX",
+  jsx: "JSX",
+  python: "Python",
+  rust: "Rust",
+  go: "Go",
+  java: "Java",
+  cpp: "C++",
+  c: "C",
+  css: "CSS",
+  scss: "SCSS",
+  html: "HTML",
+  json: "JSON",
+  yaml: "YAML",
+  bash: "Bash",
+  shell: "Shell",
+  sql: "SQL",
+  markdown: "Markdown",
+  mdx: "MDX",
 }
 
 // 复制按钮组件
-function CopyButton() {
+function CopyButton({ code }: { code: string }) {
   return (
     <button
-      className="copy-btn text-xs text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 px-2 py-1 rounded hover:bg-gray-700"
+      className="copy-btn absolute right-2 top-2 text-xs text-gray-400 hover:text-white transition-colors flex items-center gap-1 px-2 py-1 rounded bg-gray-700/50 hover:bg-gray-600/50"
       onClick={async (e) => {
-        const codeBlock = e.currentTarget.closest(".relative")?.querySelector("code")
-        const code = codeBlock?.textContent || ""
-        
         try {
           await navigator.clipboard.writeText(code)
           const btn = e.currentTarget
-          const originalText = btn.innerHTML
-          btn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>已复制</span>`
+          const originalHTML = btn.innerHTML
+          btn.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>已复制`
           btn.classList.add("text-green-400")
           
           setTimeout(() => {
-            btn.innerHTML = originalText
+            btn.innerHTML = originalHTML
             btn.classList.remove("text-green-400")
           }, 2000)
         } catch (err) {
@@ -101,11 +54,66 @@ function CopyButton() {
         }
       }}
     >
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
       </svg>
-      <span>复制</span>
+      复制
     </button>
+  )
+}
+
+// Pre 组件 - 包装代码块
+function Pre({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) {
+  // 检查子元素是否是代码块
+  if (!React.isValidElement(children)) {
+    return <pre {...props}>{children}</pre>
+  }
+
+  const childProps = children.props as any
+  const className = childProps?.className || ""
+  const match = /language-(\w+)/.exec(className)
+  const language = match ? match[1] : ""
+  const code = childProps?.children || ""
+  
+  // 如果没有语言标记，按普通 pre 处理
+  if (!language) {
+    return (
+      <pre className="mb-4 mt-6 overflow-x-auto rounded-lg bg-gray-900 p-4 text-sm" {...props}>
+        {children}
+      </pre>
+    )
+  }
+
+  const displayName = languageNames[language.toLowerCase()] || language.toUpperCase()
+
+  return (
+    <div className="relative my-6 rounded-lg overflow-hidden border border-gray-700">
+      {/* 头部：语言标签和复制按钮 */}
+      <div className="flex items-center justify-between bg-gray-800/80 px-4 py-2 border-b border-gray-700">
+        <span className="text-xs text-gray-400 font-medium">{displayName}</span>
+        <CopyButton code={typeof code === "string" ? code : ""} />
+      </div>
+      
+      {/* 代码内容 */}
+      <pre className="!mt-0 !mb-0 overflow-x-auto bg-gray-900 p-4 text-sm" {...props}>
+        {children}
+      </pre>
+    </div>
+  )
+}
+
+// 行内代码组件
+function Code({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) {
+  // 如果有语言类名，说明是代码块中的代码，由 Pre 处理
+  if (className?.includes("language-")) {
+    return <code className={className} {...props}>{children}</code>
+  }
+  
+  // 行内代码
+  return (
+    <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono" {...props}>
+      {children}
+    </code>
   )
 }
 
@@ -155,19 +163,8 @@ const components: MDXRemoteProps["components"] = {
       {children}
     </blockquote>
   ),
-  code: CodeBlock,
-  pre: ({ children }) => {
-    // 如果子元素已经是带语言标签的代码块，直接返回
-    if (React.isValidElement(children) && 
-        (children.props as any)?.className?.includes("language-")) {
-      return <>{children}</>
-    }
-    return (
-      <pre className="mb-4 mt-6 overflow-x-auto rounded-lg bg-black p-4">
-        {children}
-      </pre>
-    )
-  },
+  pre: Pre,
+  code: Code,
   table: ({ children }) => (
     <div className="my-6 w-full overflow-y-auto">
       <table className="w-full">
